@@ -1,0 +1,37 @@
+name: Veriyi güncelle
+
+on:
+  schedule:
+    # Hafta içi her gün 16:45 (TR) — TCMB kurları 15:30'da yayımlanır.
+    # TÜFE ayın 3'ünde 10:00'da açıklanır; ertesi çalışmada otomatik alınır.
+    - cron: '45 13 * * 1-5'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-data
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/update.mjs
+      - name: Değiştiyse kaydet
+        run: |
+          if git diff --quiet docs/data.json; then
+            echo "Değişiklik yok"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add docs/data.json
+            git commit -m "Veri güncellemesi $(date -u +%Y-%m-%d)"
+            git push
+          fi
