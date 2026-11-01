@@ -82,6 +82,22 @@ if (g) {
   }
 }
 
+// 7) Net minimum wage history (Ödemeler/Maaşım ratio) — new period expected
+if (data.minWage?.validUntil && today > data.minWage.validUntil) {
+  due.push({
+    title: 'Net asgari ücret: yeni dönem tutarı',
+    body: `\`minWage\` ${data.minWage.validUntil} tarihine kadar geçerli. Asgari Ücret Tespit Komisyonu kararından yeni dönemin brüt ve net tutarını doğrulayıp \`minWage.items\` listesine \`{ "from": "YYYY-MM", "gross": …, "net": … }\` ekle; \`validUntil\` değerini ilerlet.`,
+  });
+}
+
+// 8) Deposit withholding (kart günü planlayıcı) — decision has an end date
+if (data.deposit?.validUntil && today > data.deposit.validUntil) {
+  due.push({
+    title: 'Mevduat stopaj oranı: süre doldu, yeni karar var mı?',
+    body: `\`deposit.withholding\` = ${data.deposit.withholding} kararı ${data.deposit.validUntil} tarihine kadar geçerliydi. Resmî Gazete'den vadesiz/6 aya kadar TL mevduat stopajını doğrulayıp \`deposit\` alanını güncelle (\`validUntil\`, \`checked\`).`,
+  });
+}
+
 // --- report / open issues -------------------------------------------------
 const label = 'elle-guncelleme';
 const { GITHUB_TOKEN: token, GITHUB_REPOSITORY: repo } = process.env;

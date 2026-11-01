@@ -1,5 +1,5 @@
 {
- "version": "2026-11-01",
+ "version": "2026-11-01T12:41",
  "rates": {
   "date": "2026-10-30",
   "source": "TCMB döviz satış",
@@ -1097,5 +1097,82 @@
     "cpi": null
    }
   ]
+ },
+ "minWage": {
+  "source": "Asgari Ücret Tespit Komisyonu kararları (Resmî Gazete). 2022 öncesi net tutarlar bekâr çalışan AGİ dahil.",
+  "validUntil": "2026-12-31",
+  "items": [
+   {
+    "from": "2016-01",
+    "gross": 1647,
+    "net": 1300.99
+   },
+   {
+    "from": "2017-01",
+    "gross": 1777.5,
+    "net": 1404.06
+   },
+   {
+    "from": "2018-01",
+    "gross": 2029.5,
+    "net": 1603.12
+   },
+   {
+    "from": "2019-01",
+    "gross": 2558.4,
+    "net": 2020.9
+   },
+   {
+    "from": "2020-01",
+    "gross": 2943,
+    "net": 2324.71
+   },
+   {
+    "from": "2021-01",
+    "gross": 3577.5,
+    "net": 2825.9
+   },
+   {
+    "from": "2022-01",
+    "gross": 5004,
+    "net": 4253.4
+   },
+   {
+    "from": "2022-07",
+    "gross": 6471,
+    "net": 5500.35
+   },
+   {
+    "from": "2023-01",
+    "gross": 10008,
+    "net": 8506.8
+   },
+   {
+    "from": "2023-07",
+    "gross": 13414.5,
+    "net": 11402.32
+   },
+   {
+    "from": "2024-01",
+    "gross": 20002.5,
+    "net": 17002.12
+   },
+   {
+    "from": "2025-01",
+    "gross": 26005.5,
+    "net": 22104.67
+   },
+   {
+    "from": "2026-01",
+    "gross": 33030,
+    "net": 28075.5
+   }
+  ]
+ },
+ "deposit": {
+  "withholding": 0.175,
+  "validUntil": "2026-12-31",
+  "checked": "2026-11-01",
+  "source": "Vadesiz ve 6 aya kadar TL mevduat stopajı (10041 ve 11444 sayılı Cumhurbaşkanı Kararları)"
  }
 }
