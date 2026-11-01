@@ -24,3 +24,11 @@ Bir kaynak okunamazsa veya değer şüpheliyse o kısım atlanır, eski değer k
 - `inflation.groups`: Harcama gruplarına göre yıllık TÜFE (kişisel enflasyon).
 
 Elle değişiklikten sonra `version` alanını o anın tarih-saatine (TR) çek; uygulama daha eski sürümü kabul etmez.
+
+## Hatırlatmalar
+
+`scripts/checks.mjs` her çalışmada elle güncellenecekleri kontrol eder ve zamanı gelen her iş için
+`elle-guncelleme` etiketli bir GitHub issue açar (GitHub depo sahibine e-posta gönderir):
+Ocak mevzuatı, 1 Temmuz kıdem tavanı, Temmuz ara zam kontrolü, önümüzdeki iki yılın bayram
+tarihleri, Haziran'dan itibaren yeni MEB takvimi, 4 aydan eski harcama grubu verisi.
+İş bitince issue'yu kapat.

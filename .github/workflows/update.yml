@@ -9,6 +9,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 concurrency:
   group: update-data
@@ -24,6 +25,10 @@ jobs:
         with:
           node-version: 22
       - run: node scripts/update.mjs
+      - name: Elle güncellenecekleri hatırlat
+        run: node scripts/checks.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Değiştiyse kaydet
         run: |
           if git diff --quiet docs/data.json; then
