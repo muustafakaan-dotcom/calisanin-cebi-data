@@ -1,5 +1,5 @@
 {
- "version": "2026-11-01T12:41",
+ "version": "2026-11-01T14:18",
  "rates": {
   "date": "2026-10-30",
   "source": "TCMB döviz satış",
@@ -55,68 +55,73 @@
   "rentRate": 31.49,
   "rentMonth": "2026-10",
   "groups": {
-   "month": "2025-12",
-   "source": "TÜİK (OECD üzerinden)",
+   "month": "2026-09",
+   "source": "TÜİK TÜFE (2025=100), ana harcama grupları",
    "items": [
     {
      "code": "CP01",
      "name": "Gıda ve alkolsüz içecekler",
-     "annual": 28.31
+     "annual": 27.62
     },
     {
      "code": "CP02",
      "name": "Alkol ve sigara",
-     "annual": 30.8
+     "annual": 31.6
     },
     {
      "code": "CP03",
      "name": "Giyim ve ayakkabı",
-     "annual": 6.5
+     "annual": 13.22
     },
     {
      "code": "CP04",
      "name": "Konut (kira, fatura)",
-     "annual": 49.45
+     "annual": 39.99
     },
     {
      "code": "CP05",
-     "name": "Ev eşyası",
-     "annual": 24.97
+     "name": "Mobilya ve ev eşyası",
+     "annual": 23.81
     },
     {
      "code": "CP06",
      "name": "Sağlık",
-     "annual": 30.87
+     "annual": 43.26
     },
     {
      "code": "CP07",
      "name": "Ulaştırma",
-     "annual": 28.44
+     "annual": 35.1
     },
     {
      "code": "CP08",
-     "name": "Haberleşme",
-     "annual": 19.04
+     "name": "Bilgi ve iletişim (telefon, internet)",
+     "annual": 26.51
     },
     {
      "code": "CP09",
      "name": "Eğlence ve kültür",
-     "annual": 24.99
+     "annual": 23.36
     },
     {
      "code": "CP10",
      "name": "Eğitim",
-     "annual": 66.27
+     "annual": 48.62
     },
     {
      "code": "CP11",
-     "name": "Lokanta ve oteller",
-     "annual": 34.11
+     "name": "Lokanta ve konaklama",
+     "annual": 29.53
     },
     {
      "code": "CP12",
-     "name": "Diğer mal ve hizmetler",
-     "annual": 29.68
+     "name": "Sigorta ve finansal hizmetler",
+     "annual": 31.89
+    },
+    {
+     "code": "CP13",
+     "name": "Kişisel bakım ve diğer",
+     "annual": 21.88
     }
    ]
   },
