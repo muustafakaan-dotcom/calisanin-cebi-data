@@ -1,10 +1,10 @@
 {
- "version": "2026-11-01T14:18",
+ "version": "2026-11-03T01:27",
  "rates": {
-  "date": "2026-10-30",
+  "date": "2026-11-02",
   "source": "TCMB döviz satış",
-  "usd": 49.8644,
-  "eur": 55.8153,
+  "usd": 49.9726,
+  "eur": 55.996,
   "goldOunceUsd": 4319,
   "goldMonth": "2026-09"
  },
