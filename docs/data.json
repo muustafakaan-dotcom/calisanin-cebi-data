@@ -1,12 +1,12 @@
 {
- "version": "2026-11-03T01:27",
+ "version": "2026-11-03T23:16",
  "rates": {
-  "date": "2026-11-02",
+  "date": "2026-11-03",
   "source": "TCMB döviz satış",
-  "usd": 49.9726,
-  "eur": 55.996,
-  "goldOunceUsd": 4319,
-  "goldMonth": "2026-09"
+  "usd": 49.9993,
+  "eur": 55.9471,
+  "goldOunceUsd": 4105,
+  "goldMonth": "2026-10"
  },
  "law": {
   "year": 2026,
@@ -50,10 +50,10 @@
   ]
  },
  "inflation": {
-  "month": "2026-09",
-  "annual": 29.73,
-  "rentRate": 31.49,
-  "rentMonth": "2026-10",
+  "month": "2026-10",
+  "annual": 29.77,
+  "rentRate": 31.22,
+  "rentMonth": "2026-11",
   "groups": {
    "month": "2026-09",
    "source": "TÜİK TÜFE (2025=100), ana harcama grupları",
@@ -125,7 +125,7 @@
     }
    ]
   },
-  "rentVerified": true
+  "rentVerified": false
  },
  "coverage": {
   "2026": "complete",
@@ -1098,8 +1098,8 @@
     "m": "2026-10",
     "usd": 49.4204,
     "eur": 55.411,
-    "ounce": null,
-    "cpi": null
+    "ounce": 4105,
+    "cpi": 1719.352
    }
   ]
  },
