@@ -97,6 +97,44 @@ async function historyRates() {
   }
 }
 
+// 2b) Daily rates for the last ~13 months (payday-to-payday summary) -----
+// Each business day's TCMB selling rate. First run backfills; later runs only
+// fetch days after the last saved one (weekends and full-day holidays skipped).
+const DAILY_DAYS = 400;
+const isoDay = (dt) => dt.toISOString().slice(0, 10);
+async function dailyRates() {
+  data.daily ??= { source: 'TCMB döviz satış (günlük)', items: [] };
+  const items = data.daily.items;
+  const holidays = new Set((data.holidays ?? []).filter((h) => h.kind === 'full').map((h) => h.date));
+  const today = isoDay(new Date(Date.now() + 3 * 3600_000)); // TR date
+  const start = isoDay(new Date(Date.parse(today) - DAILY_DAYS * 86400_000));
+  const last = items.at(-1)?.d;
+  let added = 0;
+  for (let t = Date.parse(last ?? start) + (last ? 86400_000 : 0); isoDay(new Date(t)) <= today; t += 86400_000) {
+    const dt = new Date(t);
+    const d = isoDay(dt);
+    const wd = dt.getUTCDay();
+    if (wd === 0 || wd === 6 || holidays.has(d)) continue;
+    const [y, m, dd] = d.split('-');
+    try {
+      // today's file appears at 15:30; an earlier run picks it up next time
+      const r = parseTcmb(await get(`https://www.tcmb.gov.tr/kurlar/${y}${m}/${dd}${m}${y}.xml`));
+      if (!r.usd || !r.eur || r.date !== d) continue;
+      const prev = items.at(-1);
+      if (prev && (!near(r.usd, prev.usd, 0.15) || !near(r.eur, prev.eur, 0.15))) {
+        warn('günlük kur şüpheli', d, r.usd, r.eur);
+        continue;
+      }
+      items.push({ d, usd: r.usd, eur: r.eur });
+      added++;
+    } catch {
+      // not published (holiday) or not out yet
+    }
+  }
+  data.daily.items = items.filter((x) => x.d >= start);
+  log('günlük kur', added, 'gün eklendi, toplam', data.daily.items.length);
+}
+
 // 3) TÜFE from the TCMB table, chained onto the index --------------------
 async function cpi() {
   try {
@@ -245,6 +283,7 @@ function valid(d) {
 
 await rates();
 await historyRates();
+await dailyRates();
 await cpi();
 await gold();
 
