@@ -1,0 +1,6 @@
+{
+  // Çalışanın Cebi data.json — Cloudflare'de statik dosya (betik yok). docs/ olduğu gibi yayınlanır.
+  "name": "calisanin-cebi-data",
+  "compatibility_date": "2025-10-01",
+  "assets": { "directory": "docs" }
+}
